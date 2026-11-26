@@ -34,8 +34,15 @@ export default function ApplyPage() {
 
   // Ref guard prevents duplicate API calls if the submit button is clicked rapidly.
   const submitInFlightRef = useRef(false);
+  // Ref mirrors latest form values synchronously so immediate blur after change never reads stale state.
+  const latestFormDataRef = useRef(INITIAL_ENQUIRY_DATA);
 
   function handleFieldChange(fieldName, value) {
+    latestFormDataRef.current = {
+      ...latestFormDataRef.current,
+      [fieldName]: value,
+    };
+
     setFormData((prev) => ({
       ...prev,
       [fieldName]: value,
@@ -62,7 +69,10 @@ export default function ApplyPage() {
 
   function handleFieldBlur(fieldName) {
     setTouched((prev) => ({ ...prev, [fieldName]: true }));
-    const fieldError = validateEnquiryField(fieldName, formData[fieldName]);
+    const fieldError = validateEnquiryField(
+      fieldName,
+      latestFormDataRef.current[fieldName]
+    );
     setErrors((prev) => {
       const next = { ...prev };
       if (fieldError) {

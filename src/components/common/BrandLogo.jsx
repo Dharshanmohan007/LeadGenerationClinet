@@ -3,22 +3,21 @@ import muktivaWordmark from '../../assets/muktiva-wordmark.png';
 
 /**
  * Renders the MUKTIVA soaring-bird emblem paired with the custom MUKTIVA
- * wordmark and a razor-sharp HTML tagline so the tagline stays clearly legible
- * at 100% browser zoom on all screen sizes.
+ * wordmark and crisp HTML tagline sized cleanly for header and footer lockups.
  */
 export default function BrandLogo({ size = 'md' }) {
   const isCompact = size === 'sm';
 
   return (
-    <div className="inline-flex items-center gap-2.5 sm:gap-3">
+    <div className="inline-flex items-center gap-2 sm:gap-2.5">
       <img
         src={muktivaMark}
         alt=""
         aria-hidden="true"
         className={
           isCompact
-            ? 'h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11'
-            : 'h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12'
+            ? 'h-8 w-8 shrink-0 object-contain sm:h-9 sm:w-9'
+            : 'h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10'
         }
       />
       <div className="flex flex-col">
@@ -27,13 +26,13 @@ export default function BrandLogo({ size = 'md' }) {
           alt="MUKTIVA"
           className={
             isCompact
-              ? 'h-6 w-auto self-start object-contain sm:h-7'
-              : 'h-7 w-auto self-start object-contain sm:h-8'
+              ? 'h-4 w-auto self-start object-contain sm:h-5'
+              : 'h-5 w-auto self-start object-contain sm:h-5.5'
           }
         />
         <span
-          className={`mt-1 block font-semibold uppercase tracking-[0.03em] text-[#dfd1a7] leading-none whitespace-nowrap ${
-            isCompact ? 'text-[9px] sm:text-[9.5px]' : 'text-[9.5px] sm:text-[10px]'
+          className={`mt-0.5 block font-semibold uppercase tracking-[0.02em] text-[#dfd1a7] leading-none whitespace-nowrap ${
+            isCompact ? 'text-[8px] sm:text-[8.5px]' : 'text-[8.5px] sm:text-[9px]'
           }`}
         >
           Freedom Begins With Financial Clarity

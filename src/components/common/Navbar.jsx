@@ -48,7 +48,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-lf-navy text-white">
       <nav
         aria-label="Primary Navigation"
-        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
       >
         {/* Brand Logo */}
         <Link

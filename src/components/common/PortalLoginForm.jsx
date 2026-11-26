@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AlertCircle, ArrowLeft, Info, Landmark, Lock } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Info, Lock } from 'lucide-react';
+import muktivaEmblem from '../../assets/muktiva-emblem.png';
 import Button from './Button';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -65,14 +66,16 @@ export default function PortalLoginForm({
           className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#cfdae5] hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          Back to LoanFlow Public Site
+          Back to MUKTIVA Public Site
         </Link>
 
         <div className="rounded-3xl border border-lf-line bg-white p-6 shadow-[0_25px_70px_rgba(0,0,0,0.22)] sm:p-8">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-lf-green text-white">
-              <Landmark className="h-5 w-5" aria-hidden="true" />
-            </span>
+            <img
+              src={muktivaEmblem}
+              alt="MUKTIVA"
+              className="h-11 w-11 rounded-xl object-cover shadow-xs"
+            />
             <div>
               <span className="inline-block rounded-full bg-lf-green-soft px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-lf-green-dark">
                 {badge}

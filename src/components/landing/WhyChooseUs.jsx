@@ -5,7 +5,7 @@ const PILLARS = [
   {
     title: 'Enquiry Platform Clarity',
     description:
-      'LoanFlow operates transparently as an enquiry and referral platform connecting personal loan seekers with lending/distribution partners — never pretending to be a bank.',
+      'MUKTIVA operates transparently as an enquiry and referral platform connecting personal loan seekers with lending/distribution partners — never pretending to be a bank.',
     icon: Handshake,
   },
   {
@@ -30,14 +30,14 @@ export default function WhyChooseUs() {
           {/* Left Narrative */}
           <div className="lg:col-span-6">
             <p className="text-xs font-extrabold uppercase tracking-wider text-lf-green">
-              About Us &amp; Why Choose LoanFlow
+              About Us &amp; Why Choose MUKTIVA
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-lf-navy sm:text-4xl">
               Built Around Trust, Clarity, and Respect for Your Time
             </h2>
             <p className="mt-4 text-base leading-relaxed text-lf-muted">
               Finding a personal loan should start with honest communication.
-              LoanFlow helps you express your borrowing requirement cleanly so our
+              MUKTIVA helps you express your borrowing requirement cleanly so our
               team or a relevant lending partner can evaluate and discuss next
               steps with you directly.
             </p>

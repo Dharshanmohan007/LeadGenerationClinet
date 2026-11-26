@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Landmark, Mail, Phone, MapPin, ShieldCheck } from 'lucide-react';
+import { Building2, Clock, Mail, ShieldCheck } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,17 +11,17 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-lf-green text-white">
-                <Landmark className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span className="text-lg font-extrabold tracking-tight text-white">
-                LoanFlow
-              </span>
+            <Link
+              to="/"
+              aria-label="MUKTIVA — Freedom Begins With Financial Clarity"
+              className="inline-flex items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lf-green"
+            >
+              <BrandLogo size="md" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-[#aebdcb]">
               Connecting personal loan seekers across India with relevant lending
-              and distribution partners through a simple, transparent enquiry workflow.
+              and distribution partners through a simple, transparent enquiry
+              workflow.
             </p>
           </div>
 
@@ -31,34 +32,43 @@ export default function Footer() {
             </h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <Link to="/" className="transition-colors hover:text-white">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/#about-us" className="hover:text-white transition-colors">
+                <Link
+                  to="/#about-us"
+                  className="transition-colors hover:text-white"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/#how-it-works" className="hover:text-white transition-colors">
+                <Link
+                  to="/#how-it-works"
+                  className="transition-colors hover:text-white"
+                >
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/#benefits" className="hover:text-white transition-colors">
+                <Link
+                  to="/#benefits"
+                  className="transition-colors hover:text-white"
+                >
                   Benefits
                 </Link>
               </li>
               <li>
-                <Link to="/#faq" className="hover:text-white transition-colors">
+                <Link to="/#faq" className="transition-colors hover:text-white">
                   FAQ
                 </Link>
               </li>
               <li>
                 <Link
                   to="/apply"
-                  className="font-semibold text-lf-mint hover:text-white transition-colors"
+                  className="font-semibold text-lf-mint transition-colors hover:text-white"
                 >
                   Apply Now
                 </Link>
@@ -75,7 +85,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/privacy-policy"
-                  className="hover:text-white transition-colors"
+                  className="transition-colors hover:text-white"
                 >
                   Privacy Policy
                 </Link>
@@ -83,7 +93,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/terms-and-conditions"
-                  className="hover:text-white transition-colors"
+                  className="transition-colors hover:text-white"
                 >
                   Terms and Conditions
                 </Link>
@@ -91,7 +101,7 @@ export default function Footer() {
               <li className="border-t border-white/10 pt-2">
                 <Link
                   to="/dsa/login"
-                  className="text-[#aebdcb] hover:text-white transition-colors"
+                  className="text-[#aebdcb] transition-colors hover:text-white"
                 >
                   DSA Partner Portal
                 </Link>
@@ -99,23 +109,54 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Placeholders */}
+          {/* Contact & Developer Attribution */}
           <div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-lf-mint">
-              Contact Information
+              Contact &amp; Developer
             </h2>
             <ul className="mt-4 space-y-3 text-sm text-[#aebdcb]">
               <li className="flex items-start gap-2.5">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint" aria-hidden="true" />
-                <span>[Support Email Placeholder — Configure Before Production]</span>
+                <Mail
+                  className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="block text-xs font-semibold text-white">
+                    Enquiry Support Desk
+                  </strong>
+                  <span><a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=hunchmind.contact@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#aebdcb] transition-colors hover:text-lf-mint hover:underline"
+                    >
+                      hunchmind.contact@gmail.com
+                    </a></span>
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint" aria-hidden="true" />
-                <span>[Support Phone Placeholder]</span>
+                <Clock
+                  className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="block text-xs font-semibold text-white">
+                    Support Hours
+                  </strong>
+                  <span>Mon – Sat, 9:30 AM – 6:30 PM IST</span>
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint" aria-hidden="true" />
-                <span>[Registered Office Address Placeholder]</span>
+                <Building2
+                  className="mt-0.5 h-4 w-4 shrink-0 text-lf-mint"
+                  aria-hidden="true"
+                />
+                <span>
+                  <strong className="block text-xs font-semibold text-white">
+                    Developed by Hunchmind Groups
+                  </strong>
+                  <span>Digital Engineering &amp; Platform Partner</span>
+                </span>
               </li>
             </ul>
           </div>
@@ -129,18 +170,24 @@ export default function Footer() {
               aria-hidden="true"
             />
             <p className="text-xs leading-relaxed text-[#cfdae5] sm:text-sm">
-              <strong className="font-semibold text-white">Important Disclaimer: </strong>
-              LoanFlow is an enquiry and referral platform, not a bank or lending
-              institution. Loan eligibility, verification, interest rates and final
-              loan approval are determined independently by the relevant lending partner.
+              <strong className="font-semibold text-white">
+                Important Disclaimer:{' '}
+              </strong>
+              MUKTIVA is an enquiry and referral platform, not a bank or lending
+              institution. Loan eligibility, verification, interest rates and
+              final loan approval are determined independently by the relevant
+              lending partner.
             </p>
           </div>
         </div>
 
-        {/* Copyright Bar */}
+        {/* Copyright & Developer Credit Bar */}
         <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-[#8fa2b7] sm:flex-row sm:items-center">
-          <p>&copy; {currentYear} LoanFlow. All rights reserved.</p>
-          <p>Personal Loan Lead-Generation &amp; Enquiry Platform</p>
+          <p>&copy; {currentYear} MUKTIVA. All rights reserved.</p>
+          <p>
+            Designed &amp; Developed by{' '}
+            <span className="font-semibold text-white">Hunchmind Groups</span>
+          </p>
         </div>
       </div>
     </footer>

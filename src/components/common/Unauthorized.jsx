@@ -42,7 +42,7 @@ export default function Unauthorized({
             {portalLabel}
           </Button>
           <Button to="/" variant="outline">
-            LoanFlow Public Site
+            MUKTIVA Public Site
           </Button>
         </div>
       </div>

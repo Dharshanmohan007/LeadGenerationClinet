@@ -73,7 +73,7 @@ export default function ApplicationSuccessPage() {
           </h1>
 
           <p className="mt-3 text-sm leading-relaxed text-lf-muted sm:text-base">
-            Thank you for sharing your personal loan requirement with LoanFlow.
+            Thank you for sharing your personal loan requirement with MUKTIVA.
             Please keep your official reference ID below for your records.
           </p>
 

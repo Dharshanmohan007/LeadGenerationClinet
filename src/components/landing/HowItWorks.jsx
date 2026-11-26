@@ -47,7 +47,7 @@ export default function HowItWorks() {
           </h2>
           <p className="mt-3 text-base text-lf-muted">
             Understand exactly what happens when you share your personal loan
-            enquiry with LoanFlow.
+            enquiry with MUKTIVA.
           </p>
         </div>
 

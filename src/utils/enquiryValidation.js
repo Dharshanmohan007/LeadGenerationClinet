@@ -1,6 +1,6 @@
 /**
  * Shared option definitions, initial state, validation rules, and payload builder
- * for the three-step LoanFlow customer personal loan enquiry form.
+ * for the three-step MUKTIVA customer personal loan enquiry form.
  */
 
 export const EMPLOYMENT_TYPES = ['Salaried', 'Self-employed'];

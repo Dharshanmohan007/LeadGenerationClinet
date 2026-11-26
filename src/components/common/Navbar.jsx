@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Landmark, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 import Button from './Button';
 
 const NAV_ITEMS = [
@@ -47,25 +48,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-lf-navy text-white">
       <nav
         aria-label="Primary Navigation"
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
       >
         {/* Brand Logo */}
         <Link
           to="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lf-green"
+          aria-label="MUKTIVA — Freedom Begins With Financial Clarity"
+          className="flex shrink-0 items-center rounded-lg py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lf-green"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-lf-green text-white shadow-xs">
-            <Landmark className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <div className="flex flex-col">
-            <span className="text-lg font-extrabold tracking-tight text-white leading-none">
-              LoanFlow
-            </span>
-            <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.06em] text-[#b9c9d9] leading-none">
-              Personal Loan Enquiries
-            </span>
-          </div>
+          <BrandLogo size="sm" />
         </Link>
 
         {/* Desktop Links */}
@@ -97,7 +89,7 @@ export default function Navbar() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation-drawer"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-[9px] border border-[#71849a] bg-transparent text-white hover:bg-lf-navy-2 lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[9px] border border-[#71849a] bg-transparent text-white hover:bg-lf-navy-2 lg:hidden"
         >
           {mobileMenuOpen ? (
             <X className="h-5 w-5" aria-hidden="true" />

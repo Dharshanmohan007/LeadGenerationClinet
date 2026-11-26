@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
                 Legal &amp; Data Protection
               </p>
               <h1 className="text-2xl font-bold tracking-tight text-lf-navy sm:text-3xl">
-                LoanFlow Privacy Policy
+                MUKTIVA Privacy Policy
               </h1>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
                 1. Platform Scope
               </h2>
               <p className="mt-2">
-                LoanFlow operates as a personal loan enquiry and referral
+                MUKTIVA operates as a personal loan enquiry and referral
                 platform, not a bank or lending institution. This Privacy Policy
                 explains what information is collected through our initial
                 personal loan enquiry form and how that information is used.
@@ -93,7 +93,7 @@ export default function PrivacyPolicyPage() {
                 </li>
               </ul>
               <p className="mt-3 font-bold text-lf-navy">
-                LoanFlow does NOT collect PAN, Aadhaar, bank account credentials,
+                MUKTIVA does NOT collect PAN, Aadhaar, bank account credentials,
                 OTPs, or identity document uploads on the initial enquiry form.
               </p>
             </section>

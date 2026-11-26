@@ -28,7 +28,7 @@ import SuperAdminAdminsPage from '../pages/super-admin/SuperAdminAdminsPage';
 import SuperAdminProfilePage from '../pages/super-admin/SuperAdminProfilePage';
 
 /**
- * Central route configuration for LoanFlow across all three user roles:
+ * Central route configuration for MUKTIVA across all three user roles:
  * 1. Customer (public routes)
  * 2. DSA Admin (protected, role === 'dsa')
  * 3. Super Admin (protected, role === 'super_admin')

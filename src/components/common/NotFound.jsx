@@ -16,7 +16,7 @@ export default function NotFound() {
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-lf-muted">
           The URL you entered may have been moved, mistyped, or does not exist on
-          LoanFlow.
+          MUKTIVA.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Button to="/" variant="outline">

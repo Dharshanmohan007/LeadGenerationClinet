@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Landmark, LogOut } from 'lucide-react';
+import { LogOut } from 'lucide-react';
+import muktivaEmblem from '../../assets/muktiva-emblem.png';
 import Button from './Button';
 import { useAuth } from '../../hooks/useAuth';
 
@@ -23,11 +24,13 @@ export default function PortalLayout({
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-lf-green text-white">
-                <Landmark className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span className="text-lg font-extrabold text-lf-navy">
-                LoanFlow
+              <img
+                src={muktivaEmblem}
+                alt="MUKTIVA"
+                className="h-9 w-9 rounded-xl object-cover shadow-xs"
+              />
+              <span className="text-lg font-extrabold tracking-wide text-lf-navy">
+                MUKTIVA
               </span>
             </Link>
             <span className="rounded-full bg-lf-green-soft px-2.5 py-0.5 text-xs font-bold text-lf-green-dark ring-1 ring-lf-green-border">

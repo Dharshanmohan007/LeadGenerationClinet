@@ -17,7 +17,7 @@ export default function SuperAdminDashboardPage() {
     >
       <PortalPlaceholder
         title="Super Admin Dashboard"
-        description="Company-wide overview for LoanFlow administrators. Live metrics and audit logs will populate once backend Super Admin APIs are connected."
+        description="Company-wide overview for MUKTIVA administrators. Live metrics and audit logs will populate once backend Super Admin APIs are connected."
         plannedFeatures={[
           'Aggregate personal loan enquiry volume and status breakdown',
           'Active DSA partner account summary',

@@ -34,8 +34,8 @@ export default function TermsPage() {
                 1. Nature of Service
               </h2>
               <p className="mt-2">
-                LoanFlow is an enquiry and referral platform, not a bank or
-                lending institution. LoanFlow facilitates the collection of
+                MUKTIVA is an enquiry and referral platform, not a bank or
+                lending institution. MUKTIVA facilitates the collection of
                 personal loan enquiries and connects applicants with relevant
                 lending or distribution partners.
               </p>
@@ -46,7 +46,7 @@ export default function TermsPage() {
                 2. No Guarantee of Loan Approval
               </h2>
               <p className="mt-2">
-                Submitting a personal loan enquiry through LoanFlow does not
+                Submitting a personal loan enquiry through MUKTIVA does not
                 constitute a loan offer or guarantee approval. Loan eligibility,
                 verification, interest rates, fees, tenure, and final loan
                 approval are determined independently by the relevant lending
@@ -61,7 +61,7 @@ export default function TermsPage() {
               <p className="mt-2">
                 By submitting an enquiry, you confirm that the personal and
                 financial requirement details you provide are accurate and that you
-                voluntarily authorize LoanFlow and its identified lending or
+                voluntarily authorize MUKTIVA and its identified lending or
                 distribution partner to contact you regarding your enquiry.
               </p>
               {!partnerNotice.isConfigured && (
@@ -78,7 +78,7 @@ export default function TermsPage() {
                 4. No Enquiry Fee
               </h2>
               <p className="mt-2">
-                LoanFlow does not charge customers any fee for submitting a
+                MUKTIVA does not charge customers any fee for submitting a
                 personal loan enquiry through this website.
               </p>
             </section>

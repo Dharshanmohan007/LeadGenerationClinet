@@ -23,7 +23,7 @@ const BENEFITS = [
   {
     title: 'No Platform Enquiry Fee',
     description:
-      'Submitting a personal loan enquiry on LoanFlow is completely free. There are no upfront submission charges or hidden enquiry fees.',
+      'Submitting a personal loan enquiry on MUKTIVA is completely free. There are no upfront submission charges or hidden enquiry fees.',
     icon: ShieldCheck,
   },
   {
@@ -52,7 +52,7 @@ export default function BenefitsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-extrabold uppercase tracking-wider text-lf-green">
-            Benefits of LoanFlow
+            Benefits of MUKTIVA
           </p>
           <h2 className="mt-2 text-2xl font-bold tracking-tight text-lf-navy sm:text-4xl">
             A Clear, Simple Enquiry Journey
@@ -88,7 +88,7 @@ export default function BenefitsSection() {
         {/* Prototype Stat Strip & Privacy Callout */}
         <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div className="rounded-[13px] border border-lf-line bg-white p-4 text-center">
-            <strong className="block text-lg font-bold text-lf-navy">3 steps</strong>
+            <strong className="block text-lg font-bold text-lf-navy">2 steps</strong>
             <span className="text-xs text-lf-muted">Simple enquiry flow</span>
           </div>
           <div className="rounded-[13px] border border-lf-line bg-white p-4 text-center">

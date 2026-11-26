@@ -8,19 +8,19 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: 'How does the LoanFlow enquiry process work?',
+      question: 'How does the MUKTIVA enquiry process work?',
       answer:
         'You complete a simple three-step enquiry form covering your personal details, financial requirements (such as monthly income, employment details, existing EMI, and desired loan amount between ₹1 lakh and ₹20 lakh), and review/consent confirmation. Once submitted and saved by our server, you receive an official reference ID.',
     },
     {
       question: 'Does submitting an enquiry guarantee loan approval?',
       answer:
-        'No. LoanFlow is an enquiry and referral platform, not a bank or lending institution. Loan eligibility, document verification, interest rates, tenure, and final loan approval are determined independently by the relevant lending partner.',
+        'No. MUKTIVA is an enquiry and referral platform, not a bank or lending institution. Loan eligibility, document verification, interest rates, tenure, and final loan approval are determined independently by the relevant lending partner.',
     },
     {
       question: 'Do I need to pay any fee to submit an enquiry?',
       answer:
-        'No. Submitting a personal loan enquiry through LoanFlow is completely free for applicants.',
+        'No. Submitting a personal loan enquiry through MUKTIVA is completely free for applicants.',
     },
     {
       question: 'How is my personal and financial information used?',
@@ -31,12 +31,12 @@ export default function FAQSection() {
     {
       question: 'Who may contact me after I submit an enquiry?',
       answer:
-        'Our LoanFlow team or the relevant authorized lending/distribution partner may contact you on the mobile number you provide to discuss your enquiry and explain potential next steps.',
+        'Our MUKTIVA team or the relevant authorized lending/distribution partner may contact you on the mobile number you provide to discuss your enquiry and explain potential next steps.',
     },
     {
       question: 'Do I need to upload PAN, Aadhaar, or bank details right now?',
       answer:
-        'No. LoanFlow does not collect PAN, Aadhaar, bank account credentials, OTPs, or identity documents in this initial enquiry form.',
+        'No. MUKTIVA does not collect PAN, Aadhaar, bank account credentials, OTPs, or identity documents in this initial enquiry form.',
     },
   ];
 

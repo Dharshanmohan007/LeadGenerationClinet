@@ -91,7 +91,7 @@ export function extractApiErrorMessage(
   }
 
   if (error.request && !error.response) {
-    return 'Unable to reach the LoanFlow server right now. Please ensure the backend service is running and try again.';
+    return 'Unable to reach the MUKTIVA server right now. Please ensure the backend service is running and try again.';
   }
 
   if (typeof error.message === 'string' && error.message.trim()) {

@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* LoanFlow Prototype Color Theme */
+  --color-lf-navy: #102541;
+  --color-lf-navy-2: #183858;
+  --color-lf-footer: #0c1d32;
+  --color-lf-green: #159b77;
+  --color-lf-green-dark: #087653;
+  --color-lf-green-soft: #e8f6f1;
+  --color-lf-green-tint: #edf7f3;
+  --color-lf-green-border: #d5eee4;
+  --color-lf-mint: #75d4b3;
+  --color-lf-ink: #17283d;
+  --color-lf-muted: #6b7b8f;
+  --color-lf-line: #e3e9ef;
+  --color-lf-bg: #f5f8fb;
+  --color-lf-notice-bg: #f3f7fa;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-lf-bg);
+    color: var(--color-lf-ink);
+  }
+
+  /* Offset anchor scroll position so sticky navbar never overlaps section headings */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Ensure clear, accessible focus rings matching brand emerald-green */
+  :focus-visible {
+    outline: 2px solid #159b77;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

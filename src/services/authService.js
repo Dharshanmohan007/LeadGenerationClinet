@@ -5,16 +5,6 @@ export const USER_ROLES = {
   SUPER_ADMIN: 'super_admin',
 };
 
-/**
- * Authentication API service layer for DSA and Super Admin portals.
- *
- * FUTURE BACKEND INTEGRATION POINTS:
- * - POST /api/auth/dsa/login         -> Authenticates a DSA account (HTTP-only session cookie)
- * - POST /api/auth/super-admin/login -> Authenticates a Super Admin account (HTTP-only session cookie)
- * - GET  /api/auth/me                -> Validates current session and returns { user: { id, name, email, role } }
- * - POST /api/auth/logout            -> Clears backend session cookie / token
- */
-
 function extractAuthenticatedUser(responsePayload) {
   const user = responsePayload?.user || responsePayload?.data?.user || null;
   if (!user || typeof user.role !== 'string') {
@@ -23,6 +13,23 @@ function extractAuthenticatedUser(responsePayload) {
     );
   }
   return user;
+}
+
+export async function signupDsa(payload) {
+  try {
+    const response = await apiClient.post('/auth/dsa/signup', payload);
+    return {
+      message: response.data?.message,
+      user: response.data?.data?.user || null,
+    };
+  } catch (error) {
+    throw new Error(
+      extractApiErrorMessage(
+        error,
+        'Unable to submit DSA registration right now. Please try again.'
+      )
+    );
+  }
 }
 
 export async function loginDsa(credentials) {
@@ -39,7 +46,7 @@ export async function loginDsa(credentials) {
     throw new Error(
       extractApiErrorMessage(
         error,
-        'Unable to sign in to the DSA portal. Verify the backend auth service is available.'
+        'Unable to sign in to the DSA portal. Verify your credentials and try again.'
       )
     );
   }
@@ -61,7 +68,7 @@ export async function loginSuperAdmin(credentials) {
     throw new Error(
       extractApiErrorMessage(
         error,
-        'Unable to sign in to the Super Admin portal. Verify the backend auth service is available.'
+        'Unable to sign in to the Super Admin portal. Verify your credentials and try again.'
       )
     );
   }
@@ -77,5 +84,69 @@ export async function logoutSession() {
     await apiClient.post('/auth/logout');
   } catch {
     // Clearing local in-memory auth state remains safe even if logout endpoint is unavailable.
+  }
+}
+
+export async function forgotPassword(email) {
+  try {
+    const response = await apiClient.post('/auth/forgot-password', { email });
+    return {
+      message:
+        response.data?.message ||
+        'If a matching active account exists, password reset instructions have been processed.',
+    };
+  } catch (error) {
+    throw new Error(
+      extractApiErrorMessage(
+        error,
+        'Unable to process forgot password request right now.'
+      )
+    );
+  }
+}
+
+export async function resetPassword({ token, password, confirmPassword }) {
+  try {
+    const response = await apiClient.post('/auth/reset-password', {
+      token,
+      password,
+      confirmPassword,
+    });
+    return {
+      message:
+        response.data?.message || 'Your password has been reset successfully.',
+    };
+  } catch (error) {
+    throw new Error(
+      extractApiErrorMessage(
+        error,
+        'Unable to reset your password. Your link may have expired.'
+      )
+    );
+  }
+}
+
+export async function changePassword({
+  currentPassword,
+  newPassword,
+  confirmPassword,
+}) {
+  try {
+    const response = await apiClient.post('/auth/change-password', {
+      currentPassword,
+      newPassword,
+      confirmPassword,
+    });
+    return {
+      message:
+        response.data?.message || 'Password updated successfully.',
+    };
+  } catch (error) {
+    throw new Error(
+      extractApiErrorMessage(
+        error,
+        'Unable to update your password right now.'
+      )
+    );
   }
 }

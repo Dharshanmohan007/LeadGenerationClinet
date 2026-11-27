@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import PublicLayout from '../components/common/PublicLayout';
 import NotFound from '../components/common/NotFound';
 import ProtectedRoute from './ProtectedRoute';
@@ -15,9 +15,15 @@ import TermsPage from '../pages/customer/TermsPage';
 
 // DSA Portal Pages
 import DsaLoginPage from '../pages/dsa/DsaLoginPage';
+import DsaSignupPage from '../pages/dsa/DsaSignupPage';
+import DsaForgotPasswordPage from '../pages/dsa/DsaForgotPasswordPage';
+import DsaResetPasswordPage from '../pages/dsa/DsaResetPasswordPage';
 import DsaDashboardPage from '../pages/dsa/DsaDashboardPage';
-import DsaEnquiriesPage from '../pages/dsa/DsaEnquiriesPage';
+import DsaWebsiteEnquiriesPage from '../pages/dsa/DsaWebsiteEnquiriesPage';
+import DsaCibilEnquiriesPage from '../pages/dsa/DsaCibilEnquiriesPage';
+import DsaBankRejectedEnquiriesPage from '../pages/dsa/DsaBankRejectedEnquiriesPage';
 import DsaEnquiryDetailPage from '../pages/dsa/DsaEnquiryDetailPage';
+import DsaNotificationsPage from '../pages/dsa/DsaNotificationsPage';
 import DsaProfilePage from '../pages/dsa/DsaProfilePage';
 
 // Super Admin Portal Pages
@@ -45,9 +51,15 @@ export default function AppRoutes() {
         <Route path="/terms-and-conditions" element={<TermsPage />} />
       </Route>
 
-      {/* Portal Login Routes (accessible only when unauthenticated) */}
+      {/* Portal Auth Routes (accessible only when unauthenticated) */}
       <Route element={<PublicOnlyRoute />}>
         <Route path="/dsa/login" element={<DsaLoginPage />} />
+        <Route path="/dsa/signup" element={<DsaSignupPage />} />
+        <Route path="/dsa/forgot-password" element={<DsaForgotPasswordPage />} />
+        <Route
+          path="/dsa/reset-password/:token"
+          element={<DsaResetPasswordPage />}
+        />
         <Route path="/super-admin/login" element={<SuperAdminLoginPage />} />
       </Route>
 
@@ -62,8 +74,24 @@ export default function AppRoutes() {
           }
         >
           <Route path="/dsa/dashboard" element={<DsaDashboardPage />} />
-          <Route path="/dsa/enquiries" element={<DsaEnquiriesPage />} />
+          <Route
+            path="/dsa/enquiries"
+            element={<Navigate to="/dsa/enquiries/website" replace />}
+          />
+          <Route
+            path="/dsa/enquiries/website"
+            element={<DsaWebsiteEnquiriesPage />}
+          />
+          <Route
+            path="/dsa/enquiries/cibil"
+            element={<DsaCibilEnquiriesPage />}
+          />
+          <Route
+            path="/dsa/enquiries/bank-rejected"
+            element={<DsaBankRejectedEnquiriesPage />}
+          />
           <Route path="/dsa/enquiries/:id" element={<DsaEnquiryDetailPage />} />
+          <Route path="/dsa/notifications" element={<DsaNotificationsPage />} />
           <Route path="/dsa/profile" element={<DsaProfilePage />} />
         </Route>
       </Route>

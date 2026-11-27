@@ -1,6 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build outputs
 dist
 dist-ssr
 *.local
+
+# Environment files
 .env
 .env.*.local
+!.env.example
+
 .DS_Store

@@ -54,6 +54,19 @@ function isCrossOriginUrl(targetUrl) {
   }
 }
 
+function isLocalhostApiMisconfiguredOnDeployedSite(targetUrl) {
+  if (typeof window === 'undefined' || !targetUrl) return false;
+  try {
+    const pageHost = window.location.hostname;
+    const isPageRemote = pageHost !== 'localhost' && pageHost !== '127.0.0.1';
+    const targetHost = new URL(targetUrl, window.location.origin).hostname;
+    const isTargetLocal = targetHost === 'localhost' || targetHost === '127.0.0.1';
+    return isPageRemote && isTargetLocal;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Allows AuthContext to register a callback that runs when a non-login API call
  * receives a 401 Unauthorized response (e.g., an expired session).
@@ -175,6 +188,9 @@ export function extractApiErrorMessage(
 
   if (error.request && !error.response) {
     const targetUrl = resolveRequestTarget(error.config);
+    if (isLocalhostApiMisconfiguredOnDeployedSite(targetUrl)) {
+      return `This deployed frontend build is still configured to call ${API_BASE_URL}. Update VITE_API_BASE_URL in your Vercel Frontend Environment Variables to your deployed backend URL (ending with /api) and redeploy.`;
+    }
     if (isCrossOriginUrl(targetUrl)) {
       return `Unable to complete the request to ${API_BASE_URL || 'the backend server'}. No response was received (this usually indicates a CORS block, failed preflight, or backend/database outage).`;
     }

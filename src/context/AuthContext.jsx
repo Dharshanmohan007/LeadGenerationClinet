@@ -44,7 +44,14 @@ export function AuthProvider({ children }) {
       const currentUser = await getCurrentSession();
       setUser(currentUser);
       setSessionExpired(false);
-    } catch {
+    } catch (error) {
+      if (error?.status !== 401) {
+        console.warn('[AuthContext] Session verification failed:', {
+          status: error?.status ?? null,
+          category: error?.category ?? null,
+          message: error?.message,
+        });
+      }
       setUser(null);
     } finally {
       setIsCheckingAuth(false);

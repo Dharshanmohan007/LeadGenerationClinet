@@ -1,4 +1,4 @@
-import apiClient, { extractApiErrorMessage } from '../apiClient';
+import apiClient, { toApiError } from '../apiClient';
 
 const SOURCE_ENDPOINT_MAP = {
   website: '/dsa/enquiries/website',
@@ -13,9 +13,7 @@ export async function getDsaDashboardStats(period = 'daily') {
     });
     return response.data?.data;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load dashboard analytics.')
-    );
+    throw toApiError(error, 'Unable to load dashboard analytics.');
   }
 }
 
@@ -26,9 +24,7 @@ export async function getRecentDsaEnquiries(limit = 8) {
     });
     return response.data?.data?.items || [];
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load recent enquiries.')
-    );
+    throw toApiError(error, 'Unable to load recent enquiries.');
   }
 }
 
@@ -38,9 +34,7 @@ export async function listDsaEnquiries(source, params = {}) {
     const response = await apiClient.get(endpoint, { params });
     return response.data?.data;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load enquiry records.')
-    );
+    throw toApiError(error, 'Unable to load enquiry records.');
   }
 }
 
@@ -56,9 +50,7 @@ export async function getDsaEnquiryDetail(id, source = '') {
     });
     return response.data?.data?.enquiry;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load enquiry details.')
-    );
+    throw toApiError(error, 'Unable to load enquiry details.');
   }
 }
 
@@ -77,9 +69,7 @@ export async function updateDsaEnquiry(id, payload, source = '') {
       message: response.data?.message || 'Enquiry updated successfully.',
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to update enquiry.')
-    );
+    throw toApiError(error, 'Unable to update enquiry.');
   }
 }
 
@@ -88,9 +78,7 @@ export async function getDsaProfile() {
     const response = await apiClient.get('/dsa/profile');
     return response.data?.data?.user;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load your DSA profile.')
-    );
+    throw toApiError(error, 'Unable to load your DSA profile.');
   }
 }
 
@@ -102,9 +90,7 @@ export async function updateDsaProfile(payload) {
       message: response.data?.message || 'Profile updated successfully.',
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to update your DSA profile.')
-    );
+    throw toApiError(error, 'Unable to update your DSA profile.');
   }
 }
 
@@ -113,9 +99,7 @@ export async function getDsaNotifications(params = {}) {
     const response = await apiClient.get('/dsa/notifications', { params });
     return response.data?.data;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load notifications.')
-    );
+    throw toApiError(error, 'Unable to load notifications.');
   }
 }
 
@@ -124,9 +108,7 @@ export async function getDsaUnreadCount() {
     const response = await apiClient.get('/dsa/notifications/unread-count');
     return response.data?.data?.unreadCount ?? 0;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to load unread notification count.')
-    );
+    throw toApiError(error, 'Unable to load unread notification count.');
   }
 }
 
@@ -137,9 +119,7 @@ export async function markDsaNotificationRead(notificationId) {
     );
     return response.data?.data;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to mark notification as read.')
-    );
+    throw toApiError(error, 'Unable to mark notification as read.');
   }
 }
 
@@ -148,8 +128,6 @@ export async function markAllDsaNotificationsRead() {
     const response = await apiClient.patch('/dsa/notifications/read-all');
     return response.data?.data;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(error, 'Unable to mark all notifications as read.')
-    );
+    throw toApiError(error, 'Unable to mark all notifications as read.');
   }
 }

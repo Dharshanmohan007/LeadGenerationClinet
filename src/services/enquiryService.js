@@ -1,4 +1,4 @@
-import apiClient, { extractApiErrorMessage } from './apiClient';
+import apiClient, { toApiError } from './apiClient';
 
 /**
  * Submits a validated customer personal loan enquiry to POST /api/enquiries.
@@ -39,13 +39,9 @@ export async function submitEnquiry(enquiryData) {
       enquiry: payload?.data || payload?.enquiry || null,
     };
   } catch (error) {
-    const friendlyMessage = extractApiErrorMessage(
+    throw toApiError(
       error,
       'Unable to submit your enquiry right now. Please try again shortly.'
     );
-    const normalizedError = new Error(friendlyMessage);
-    normalizedError.status = error?.response?.status ?? null;
-    normalizedError.cause = error;
-    throw normalizedError;
   }
 }

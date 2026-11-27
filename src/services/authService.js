@@ -1,4 +1,4 @@
-import apiClient, { extractApiErrorMessage } from './apiClient';
+import apiClient, { toApiError } from './apiClient';
 
 export const USER_ROLES = {
   DSA: 'dsa',
@@ -23,11 +23,9 @@ export async function signupDsa(payload) {
       user: response.data?.data?.user || null,
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to submit DSA registration right now. Please try again.'
-      )
+    throw toApiError(
+      error,
+      'Unable to submit DSA registration right now. Please try again.'
     );
   }
 }
@@ -43,11 +41,9 @@ export async function loginDsa(credentials) {
 
     return user;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to sign in to the DSA portal. Verify your credentials and try again.'
-      )
+    throw toApiError(
+      error,
+      'Unable to sign in to the DSA portal. Verify your credentials and try again.'
     );
   }
 }
@@ -65,18 +61,20 @@ export async function loginSuperAdmin(credentials) {
 
     return user;
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to sign in to the Super Admin portal. Verify your credentials and try again.'
-      )
+    throw toApiError(
+      error,
+      'Unable to sign in to the Super Admin portal. Verify your credentials and try again.'
     );
   }
 }
 
 export async function getCurrentSession() {
-  const response = await apiClient.get('/auth/me');
-  return extractAuthenticatedUser(response.data);
+  try {
+    const response = await apiClient.get('/auth/me');
+    return extractAuthenticatedUser(response.data);
+  } catch (error) {
+    throw toApiError(error, 'Unable to verify your current session.');
+  }
 }
 
 export async function logoutSession() {
@@ -96,11 +94,9 @@ export async function forgotPassword(email) {
         'If a matching active account exists, password reset instructions have been processed.',
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to process forgot password request right now.'
-      )
+    throw toApiError(
+      error,
+      'Unable to process forgot password request right now.'
     );
   }
 }
@@ -117,11 +113,9 @@ export async function resetPassword({ token, password, confirmPassword }) {
         response.data?.message || 'Your password has been reset successfully.',
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to reset your password. Your link may have expired.'
-      )
+    throw toApiError(
+      error,
+      'Unable to reset your password. Your link may have expired.'
     );
   }
 }
@@ -142,11 +136,9 @@ export async function changePassword({
         response.data?.message || 'Password updated successfully.',
     };
   } catch (error) {
-    throw new Error(
-      extractApiErrorMessage(
-        error,
-        'Unable to update your password right now.'
-      )
+    throw toApiError(
+      error,
+      'Unable to update your password right now.'
     );
   }
 }
